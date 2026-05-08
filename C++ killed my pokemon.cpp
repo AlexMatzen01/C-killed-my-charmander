@@ -1,6 +1,9 @@
 #include <algorithm>
+#include <cctype>
 #include <chrono>
+#include <functional>
 #include <iostream>
+#include <limits>
 #include <random>
 #include <string>
 #include <vector>
@@ -17,9 +20,18 @@ using namespace std;
 struct Pokemon
 {
     string name;
-    int attack;
     int hp;
+    int attack;
     vector<string> moves;
+    int level;
+
+    Pokemon() : name(), hp(0), attack(0), moves(), level(1) {}
+
+    Pokemon(string pokemonName, string hpText, string attackText, string move1, string move2, string move3, string move4)
+        : name(pokemonName), hp(stoi(hpText)), attack(stoi(attackText)), moves{move1, move2, move3, move4}, level(1) {}
+
+    Pokemon(string pokemonName, int hpValue, int attackValue, int pokemonLevel, vector<string> moveList)
+        : name(pokemonName), hp(hpValue), attack(attackValue), moves(moveList), level(pokemonLevel) {}
 };
 
 static std::mt19937& rng()
