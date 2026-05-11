@@ -1,3 +1,12 @@
+# Build
+```bash
+g++ -std=c++17 -I./include "C++ killed my pokemon.cpp" -lcurl -o pokemon-game
+```
+# Run
+```bash
+./pokemon-game
+```
+
 
 # C-killed-my-charmander
 
